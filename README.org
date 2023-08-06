@@ -1,0 +1,9 @@
+* ollama
+
+[[https://github.com/jmorganca/ollama][ollama]] client for emacs
+
+`ollama-define-word`
+
+`ollama-prompt-line`
+
+`ollama-summarize-region`
