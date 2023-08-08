@@ -1,6 +1,6 @@
 * ollama
 
-[[https://github.com/jmorganca/ollama][ollama]] client for emacs
+[[https://github.com/jmorganca/ollama][ollama]] client for emacs, uses =llama2-uncensored= by default
 
 =ollama-define-word=
 
