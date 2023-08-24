@@ -50,7 +50,9 @@
          (url-request-extra-headers
           '(("Content-Type" . "application/json")))
          (url-request-data
-          (json-encode `((model . ,model) (prompt . ,prompt)))))
+          (json-encode 
+           `((model . ,model) 
+             (prompt . ,(encode-coding-string prompt 'utf-8))))))
     (with-current-buffer (url-retrieve-synchronously url)
       (goto-char url-http-end-of-headers)
       (buffer-substring-no-properties
