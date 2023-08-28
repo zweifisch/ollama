@@ -8,4 +8,4 @@
 
 =ollama-summarize-region=
 
-=ollama-transalte-word=
+=ollama-translate-word=
