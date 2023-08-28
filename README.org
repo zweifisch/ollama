@@ -7,3 +7,5 @@
 =ollama-prompt-line=
 
 =ollama-summarize-region=
+
+=ollama-transalte-word=

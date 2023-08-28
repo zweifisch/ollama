@@ -45,6 +45,11 @@
   :group 'ollama
   :type 'string)
 
+(defcustom ollama:language "Chinese"
+  "Language to translate to."
+  :group 'ollama
+  :type 'string)
+
 (defun ollama-fetch (url prompt model)
   (let* ((url-request-method "POST")
          (url-request-extra-headers
@@ -86,6 +91,14 @@
   (with-output-to-temp-buffer "*ollama*"
     (princ
      (ollama-prompt ollama:endpoint (format "define %s" (thing-at-point 'word)) ollama:model))))
+
+;;;###autoload
+(defun ollama-translate-word ()
+  "Translate current word."
+  (interactive)
+  (with-output-to-temp-buffer "*ollama*"
+    (princ
+     (ollama-prompt ollama:endpoint (format "translate \"%s\" to %s" (thing-at-point 'word) ollama:language) ollama:model))))
 
 ;;;###autoload
 (defun ollama-summarize-region ()
