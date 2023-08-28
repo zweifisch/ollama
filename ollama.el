@@ -50,12 +50,16 @@
          (url-request-extra-headers
           '(("Content-Type" . "application/json")))
          (url-request-data
-          (json-encode `((model . ,model) (prompt . ,prompt)))))
+          (encode-coding-string
+           (json-encode `((model . ,model) (prompt . ,prompt)))
+           'utf-8)))
     (with-current-buffer (url-retrieve-synchronously url)
       (goto-char url-http-end-of-headers)
-      (buffer-substring-no-properties
-       (point)
-       (point-max)))))
+      (decode-coding-string
+       (buffer-substring-no-properties
+        (point)
+        (point-max))
+       'utf-8))))
 
 (defun ollama-get-response-from-line (line)
   (cdr
